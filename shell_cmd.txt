@@ -1,0 +1,9 @@
+celery flower --broker=redis://localhost:6379/0 --broker_api=redis://localhost:6379/
+
+celery -A project worker -l INFO -b 'redis://localhost:6379/0'    
+
+celery multi start w1 -A project -l INFO --pidfile=./%n.pid --logfile=./%n%I.log -b 'redis://localhost:6379/0'     
+celery multi restart w1 -A project -l INFO --pidfile=./%n.pid --logfile=./%n%I.log -b 'redis://localhost:6379/0'  
+celery multi stop w1 -A project -l INFO --pidfile=./%n.pid --logfile=./%n%I.log -b 'redis://localhost:6379/0'     
+
+docker run --name redis-celery -p 6379:6379  -d redis
