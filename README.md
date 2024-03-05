@@ -1,4 +1,4 @@
-# celery_project
+# Simple Celery Runner
 
 Playing around with Celery, Flower and Redis. Used mnemonic library to create BIP 32 seed phrases.
 
